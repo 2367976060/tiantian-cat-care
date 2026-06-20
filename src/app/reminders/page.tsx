@@ -56,6 +56,7 @@ export default function RemindersPage() {
       repeat_days: [0, 1, 2, 3, 4, 5, 6],
       start_date: new Date().toISOString().split('T')[0],
       is_active: true,
+      notification_sent: false,
     });
     setReminders(getReminders());
     setIsAddOpen(false);
