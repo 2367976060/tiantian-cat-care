@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 100% 98%;
+    --foreground: 260 30% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 260 30% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 260 30% 15%;
+    --primary: 255 92% 76%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 330 86% 82%;
+    --secondary-foreground: 260 30% 15%;
+    --muted: 30 30% 96%;
+    --muted-foreground: 260 10% 45%;
+    --accent: 30 100% 95%;
+    --accent-foreground: 260 30% 15%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 260 15% 90%;
+    --input: 260 15% 90%;
+    --ring: 255 92% 76%;
+  }
+
+  .dark {
+    --background: 260 30% 10%;
+    --foreground: 30 20% 95%;
+    --card: 260 25% 15%;
+    --card-foreground: 30 20% 95%;
+    --popover: 260 25% 15%;
+    --popover-foreground: 30 20% 95%;
+    --primary: 255 92% 76%;
+    --primary-foreground: 260 30% 10%;
+    --secondary: 330 86% 72%;
+    --secondary-foreground: 260 30% 10%;
+    --muted: 260 20% 20%;
+    --muted-foreground: 260 10% 65%;
+    --accent: 260 25% 20%;
+    --accent-foreground: 30 20% 95%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 260 20% 25%;
+    --input: 260 20% 25%;
+    --ring: 255 92% 76%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(167, 139, 250, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(167, 139, 250, 0.5);
+}
+
+/* WeChat browser optimizations */
+body {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+input, textarea {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+/* Prevent pull-to-refresh on mobile */
+html, body {
+  overscroll-behavior-y: contain;
+}
